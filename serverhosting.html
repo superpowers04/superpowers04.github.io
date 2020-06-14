@@ -19,10 +19,13 @@
 }
 
 a:link, a:visited{
-  color: #a50;
+  background-color:#333;
+  color: #b61;
 }
 a:hover, a:active{
-  color: #fa0;
+  color: #fb1;
+  background-color:#333;
+
 }
 body{
   background: #444;
@@ -59,10 +62,10 @@ body{
 </head>
 <body>
 
-<h4 class="warning">Warnings:</h4>This guide is not for Bedrock, Please do not follow this it you are trying to setup a Minecraft: Bedrock Edition server.<br>This guide is only for Vanilla servers, <b>This guide is not for bukkit/spigot/paper/forge</b><br>This guide will require you to access your routers control panel and will require some computer knowledge
+<h4 class="warning">Warnings:</h4>This guide is not for Bedrock, Please do not follow this it you are trying to setup a Minecraft: Bedrock Edition server.<br>This guide is only for Vanilla servers, <b class="warning">This guide is not for bukkit/spigot/paper/forge</b><br>This guide will require you to access your routers control panel and will require some computer knowledge
 
 <h2>Setting up a Minecraft: Java Edition server</h2>
-<h3> Requirements:</h3><br><li>Java</li><li>Minecraft: Java Edition</li><li>Any Windows or Linux computer, This guide is not garrenteed to work on MacOS</li>
+<h3> Requirements:</h3><br><li>Java(Oracle Java/OpenJDK 8 is required for 1.13 and below), You can get this from <a href="https://www.java.com/inc/BrowserRedirect1.jsp">here</a></li><li>Minecraft: Java Edition</li><li>Any Windows or Linux computer, This guide is not garrenteed to work on MacOS</li>
 <h3>Starting out</h3>
 Make a new folder anywhere on your system(If you're using Windows then don't use the onedrive folder), Name it anything. This will be our workspace<br>
 <a href="https://www.minecraft.net/en-us/download/server">Head over to Minecraft's website(https://www.minecraft.net/en-us/download/server)</a> and download the latest version of the Minecraft server jar<br>
@@ -128,7 +131,7 @@ Sign in and then find something like "Port Forwarding" or "Virtual servers" <br>
 Mine was under "Advanced", Click "Add", Then put the IP addresss you got from earlier in "IPv4 Address" or "IP address"<br>
 In the "Outbound Port" and "Inbound port" or "Start port" and "end port" put "25565"<br>
 
-<b>MAKE SURE THAT "Protocol"/"Service Type" IS ETHER "TCP/UDP" OR "BOTH"</b><br><br>
+<b>MAKE SURE THAT "Protocol"/"Service Type" IS ETHER "TCP/UDP" OR "BOTH"</b> If you do not have this option then do the step twice, One in TCP and one on UDP<br><br>
 
 Add a service name if required, save and test your server, you can get your public ip from <a href="https://duckduckgo.com/?q=what+is+my+ip">Here</a><br>
 
