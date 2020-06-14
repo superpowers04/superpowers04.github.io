@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    
+    
+    <title>Setting up a Minecraft Java server</title>
+    
+    <!--[if IE]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Styling -->
+<style>
+
+*{
+  font: sans-serif;
+  font-family: arial;
+}
+
+a:link, a:visited{
+  color: #a50;
+}
+a:hover, a:active{
+  color: #fa0;
+}
+body{
+  background: #444;
+  color: #eee;
+  background-color: #444;
+    border-color: #444;
+    border-top-color: #444;
+    border-bottom-color: #444;
+    border-left-color: #444;
+    border-right-color: #444;
+    border-color: #444;
+
+}
+.cmd{
+  background: #111;
+  color: #fff;
+  background-color:#111;
+    border-color: #fff;
+    border: 2px;
+  width: 240px;
+  border-style: solid;
+/*    border-top-color: #444;
+    border-bottom-color: #444;
+    border-left-color: #444;
+    border-right-color: #444;
+    border-color: #444;*/
+
+}
+.warning{
+  color: #f33;
+}
+
+</style>
+</head>
+<body>
+
+<h4 class="warning">Warnings:</h4>This guide is not for Bedrock, Please do not follow this it you are trying to setup a Minecraft: Bedrock Edition server.<br>This guide is only for Vanilla servers, <b>This guide is not for bukkit/spigot/paper/forge</b><br>This guide will require you to access your routers control panel and will require some computer knowledge
+
+<h4>Setting up a Minecraft: Java Edition server</h4>
+<h3> Requirements:</h3><br><li>Java</li><li>Minecraft: Java Edition</li><li>Any Windows or Linux computer, This guide is not garrenteed to work on MacOS</li>
+<h3>Starting out</h3>
+Make a new folder anywhere on your system(If you're using Windows then don't use the onedrive foolder), Name it anything. This will be our workspace<br>
+<a href="https://www.minecraft.net/en-us/download/server">Head over to Minecraft's website(https://www.minecraft.net/en-us/download/server)</a> and download the latest version of the Minecraft server jar<br>
+Place the file into your workplace 
+<h3>Setting up the batch file(Windows)</h3>
+<a href="run.bat">Download this</a> and place it in the same folder, then run it, That'll start the server for the first time, You'll see a command prompt window, That's your server console, You can run commands(Like /op or /gamemode) in it and it will tell you what the server is thinking and/or doing
+<h3>Setting up pt.2</h3>
+Your server should've given you an error mentioning the Eula, Close the window. Go to your workplace folder, You should see a few new files, One of them should be a "eula" or "eula.txt", Double click it and you should get the below or something similar,<br><img src="eula.png"><br> <a href="https://account.mojang.com/documents/minecraft_eula">While you probably won't do it, I'd recommend reading the Eula</a>, if you agree then change "eula=false" to "eula=true", After that yuor server is all setup for playing locally.
+<h2>Time to portforward/connect to your server<h2>
+<h4>Playing Locally</h4>
+If you are playing with a buddy that is not on the same network as you then skip this and follow the "Port Forwarding" section<br>
+In order for your buddy to join you, You will need to find your IP(Think of it as a passcode or friend code but to access the server)<br>
+Open up command prompt, and in the command prompt type "IPconfig", press enter and look for something like:<br>
+<div class="cmd">
+IPv4 Address.......: XXX.XXX.X.X
+</div><br>
+For example mine pops up as:<br>
+<div class="cmd">
+IPv4 Address......: 192.168.0.106
+</div><br>
+This is the IP your buddy will use to connect to the server, Start up the server and then tell your buddy to click "Add a new server" or "Direct Connect"<br>
+
+For "Add a new server" the name can be anything but the IP needs to be your IPv4 address so tell them to put that there, Click finish and then double click the server and they have connected<br>
+
+For "Direct connect" tell your buddy to put your IPv4 into the ip box and click connect<br>
+
+If you want to connect to the server on your own computer then do the above but instead use "localhost" as the IP<br>
+
+<h4>Playing online(Port forwarding)</h4>
+If you are playing on the same network with your buddy then please follow the above instead...<br>
+
+
+This will be based off of how my router/routers I have used in the past have worked, This is not garrenteed to help you.<br>
+
+You will need to get the IP address of you and your router, <br>
+
+
+
+
+
+Open up command prompt, and in the command prompt type "IPconfig", press enter and look for:<br>
+<div class="cmd">
+IPv4 Address.......: XXX.XXX.X.X
+<br></div>
+and<br>
+<div class="cmd">
+Default Gateway.....:XXX.XXX.XXX.XXX
+<br></div>
+For example mine pop up as 
+<div class="cmd">
+IPv4 Address......: 192.168.0.106
+
+Default Gateway....:192.168.0.1
+<br></div><br>
+The first one is your local IP address<br>
+The second one is your routers IP Address<br><br>
+
+Now you are going to want to goto your web browser and type the IP address for your router and you should get a login box.<br>
+
+You will have to look at the back of your router or search the router online and find the username and password, I know Admin is a popular default username/password.<br><br>
+
+Sign in and then find something like "Port Forwarding" or "Virtual servers" <br>
+Mine was under "Advanced", Click "Add", Then put the IP addresss you got from earlier in "IPv4 Address" or "IP address"<br>
+In the "Outbound Port" and "Inbound port" or "Start port" and "end port" put "25565"<br>
+
+<b>MAKE SURE THAT "Protocol"/"Service Type" IS ETHER "TCP/UDP" OR "BOTH"</b><br><br>
+
+Add a service name if required, save and test your server, you can get your public ip from <a href="https://duckduckgo.com/?q=what+is+my+ip">Here</a><br>
+
+
+Your buddies will use that to join your server, you will join "localhost", If it works then have fun.<br>
+<!-- if it doesn't work then feel free to DM superpowers04#3887 on discord and I will try to help if possible.. Good luck <br> -->
+
+
+<!-- <p class=""> -->
+This page was created by Superpowers04<br> If you notice any incorrect informationm, would like more information added or need help please let superpowers04#3887 know on Discord</p>
+  </body>
+</html>
