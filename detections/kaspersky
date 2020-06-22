@@ -1,0 +1,7 @@
+Causes login and multiplayer connectivity problems.
+
+If you are using Kaspersky Internet Security and cannot connect to Mojang’s servers, turn off Encrypted Connections Scan by following this guide.
+
+If the above fix does not work, you will need to uninstall Kaspersky Internet Security.
+
+Uninstall Tool here
