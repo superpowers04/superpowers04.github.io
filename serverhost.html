@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>How to setup a Java edition Server</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="How to setup a Java edition Server" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Setting up a Minecraft: Java Edition server This guide is migrated from https://superpowers04.github.io/serverhosting Requirements:" />
+<meta property="og:description" content="Setting up a Minecraft: Java Edition server This guide is migrated from https://superpowers04.github.io/serverhosting Requirements:" />
+<link rel="canonical" href="http://localhost:4000/help/setting-up-java-server/" />
+<meta property="og:url" content="http://localhost:4000/help/setting-up-java-server/" />
+<meta property="og:site_name" content="MinecraftHopper" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-16T22:46:44-04:00" />
+<script type="application/ld+json">
+{"headline":"How to setup a Java edition Server","dateModified":"2020-09-16T22:46:44-04:00","datePublished":"2020-09-16T22:46:44-04:00","description":"Setting up a Minecraft: Java Edition server","url":"https://superpowers04.github.io/serverhost","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/help/setting-up-java-server/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    
+    <link rel="stylesheet" href="https://minecrafthopper.net/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://minecrafthopper.net/assets/css/global.css">
+
+  </head>
+  <body>
+<div id="page-content-wrapper">
+    <div id="page-header">
+        <ul class="nav nav-pills pull-right">
+            <li><a href="https://account.mojang.com">Mojang account page</a></li>
+            <li><a href="https://minecraft.net">Minecraft home page</a></li>
+            <li><a href="https://bugs.mojang.com/secure/Dashboard.jspa">Bug Tracker</a></li>
+            <li><a href="http://help.minecraft.net/">Account Support</a></li>
+        </ul>
+        <h3 class="muted"><a href="/">MinecraftHopper - Super</a></h3>This is from Minecraft Hopper - This is unofficial
+    </div>
+    <hr>
+    <section class="main-content">
+  
+      <div class="single-page ">
+    
+        
+        
+        
+        <div class="row-fluid">
+            <div class="span12">
+                <ul class="breadcrumb well clearfix">
+                    <nav aria-label="You are here:" role="navigation">
+                        <ol class="breadcrumbs">
+                      
+
+                            
+                            How to setup a Java edition Server
+                        
+                        </ol>
+                    </nav>
+                </ul>
+            </div>
+        </div>
+    
+    <div class="row">
+    <div style="width: 85%;" class="offset1">
+    <h1 id="setting-up-a-minecraft-java-edition-server">Setting up a Minecraft: Java Edition server</h1>
+<p><small>This guide is migrated from <a href="https://superpowers04.github.io/serverhosting">https://superpowers04.github.io/serverhosting</a></small></p>
+<h3 id="requirements">Requirements:</h3>
+
+<ul>
+  <li>Java(Oracle Java/OpenJDK 8 is required for 1.13 and below), <a href="/help/installing-java/">You can follow this to install the right version of Java</a></li>
+  <li>Minecraft: Java Edition</li>
+  <li>Any Windows or Linux computer, This guide is not guarranteed to work on MacOS</li>
+</ul>
+
+<h2 id="setting-up">Setting up</h2>
+<ul>
+  <li>Make a new folder anywhere on your system(If you’re using Windows then don’t use the onedrive folder), Name it anything. This will be our workspace</li>
+  <li>Head over to <a href="https://www.minecraft.net/en-us/download/server">Minecraft’s website(https://www.minecraft.net/en-us/download/server)</a>, Or if you’re looking to add plugins use <a href="https://papermc.io/">Paper</a> and download the latest version of the Minecraft server jar</li>
+  <li>Place the file into your workplace</li>
+</ul>
+
+<h3 id="windows">Windows</h3>
+<p><small>This part is unfinished</small></p>
+<ul>
+  <li>Open up notepad, And paste <code class="language-plaintext highlighter-rouge">@echo off
+java -Xmx2G -Xms1G -jar Change-Me.jar -nogui
+pause</code> into it, Change “Change-Me” into the file name of your server(So for example paperclip or server), click save</li>
+  <li>Go to the folder that contains your server, change the filetype to all and name the file anything <strong>There has to be a .bat at the end of the file name</strong>,</li>
+  <li>Run it, That’ll start the server for the first time, You’ll see a command prompt window, That’s your server console, You can run commands(Like /op or /gamemode) in it and it will tell you what the server is thinking and/or doing</li>
+</ul>
+
+<h2 id="eula">Eula</h2>
+<ul>
+  <li>Your server should’ve given you an error mentioning the Eula, Close the window.</li>
+  <li>Go to your workplace folder, You should see a few new files. One of them should be a “eula” or “eula.txt”, Double click it and you should get the below or something similar,
+<img src="/static/images/help/setting-up-server/eula.png" alt="Eula" /></li>
+</ul>
+
+<hr />
+
+<p><a href="https://account.mojang.com/documents/minecraft_eula">You’ll need to read the EULA</a>, if you agree then change “eula=false” to “eula=true”, After that your server is all setup for playing locally.</p>
+
+<h1 id="playing-with-other-people">Playing With other people</h1>
+
+<h2 id="localplay"><a href="#localplay">Playing Locally</a></h2>
+
+<p><strong>If you are playing with a person that is not on the same network as you then skip this and follow the <a href="#portforwarding"><em>Playing Online and portforwarding</em></a> section</strong><br />
+In order for them to join you, you will need to find your IP(Think of it as a passcode or friend code but to access the server)<br /></p>
+<ul>
+  <li>Open up command prompt, and in the command prompt type “IPconfig”. Press enter and look for something like:<br />
+<code class="language-plaintext highlighter-rouge">IPv4 Address.......: XXX.XXX.X.X</code> <br />
+Example Image:<br />
+<img src="/static/images/help/setting-up-server/ipconfig.png" alt="Example" /><br /></li>
+</ul>
+
+<hr />
+
+<p>This is the IP that the person will use to connect to the server. Start up the server and then tell them to click “Add a new server” or “Direct Connect”</p>
+<ul>
+  <li>
+    <p>For “Add a new server” the name can be anything but the IP needs to be your IPv4 address, so tell them to put that there. Click finish and then double click the server and they have connected</p>
+  </li>
+  <li>
+    <p>For “Direct connect” tell them to put your IPv4 into the ip box and click connect<br /></p>
+  </li>
+</ul>
+
+<p>If you want to connect to the server on your own computer then do the above but instead use “localhost” as the IP</p>
+
+<h2 id="portforwarding"><a href="#portforwarding">Playing Online and portforwarding</a></h2>
+
+<p><strong>If you are playing on the same network with your buddy then please follow the <a href="#localplay"><em>Playing Locally</em></a> section instead…<br />
+Most of the instructions here are for generic routers, They might not work for yours</strong><br /></p>
+
+<ul>
+  <li>
+    <p>You will need to get the IP address of you and your router, <br /></p>
+  </li>
+  <li>
+    <p>Open up command prompt, and in the command prompt type “IPconfig”, press enter and look for:<br /></p>
+
+    <p><code class="language-plaintext highlighter-rouge">IPv4 Address.......: XXX.XXX.X.X</code><br />
+  and<br />
+  <code class="language-plaintext highlighter-rouge">Default Gateway.....:XXX.XXX.XXX.XXX</code><br />
+  Example Image:<br />
+<img src="/static/images/help/setting-up-server/ipconfig.png" alt="Example" /></p>
+  </li>
+</ul>
+
+<hr />
+
+<ul>
+  <li>The first one is your local IP address</li>
+  <li>The second one is your routers IP Address</li>
+</ul>
+
+<p>Open up your web browser and type the IP address for your router and you should get a login box.<br /></p>
+<ul>
+  <li>You can also try visiting these common router IP’s, <a href="https://192.168.0.1">192.168.0.1</a>, <a href="https://192.168.1.1">192.168.1.1</a>, or <a href="https://10.0.0.1">10.0.0.1</a></li>
+</ul>
+
+<p>Look at the back of your router or search the router online and find the username and password. <code class="language-plaintext highlighter-rouge">Admin</code> is a popular default username/password</p>
+
+<ul>
+  <li>Sign in and then find something like “Port Forwarding” or “Virtual servers”</li>
+  <li>Click “Add”, Then put the IP addresss you got from earlier in “IPv4 Address” or “IP address”
+In the “Outbound Port” and “Inbound port” or “Start port” and “end port” put “25565”<br /></li>
+</ul>
+
+<p><strong>Make sure that “Protocol”/”Service Type” is either “TCP/UDP” or “BOTH”.</strong></p>
+<ul>
+  <li>If you do not have this option then do the step twice, One in TCP and one on UDP</li>
+</ul>
+
+<p>Add a service name if required, save and test your server, <a href="https://duckduckgo.com/?q=what+is+my+ip">you can get your public ip from Here</a><br /></p>
+
+<p>People will use that to join your server, you will join “localhost”</p>
+
+    </div>
+    </div>
+</div>
+      <hr>
+      <footer class="site-footer">
+        <small><div style="text-align: center;"><a href="https://github.com/superpowers04/MinecraftHopper">MinecraftHopper</a> is maintained by the community.</div>
+        <div style="text-align: center;">Need more help? <a href="https://discord.gg/58Sxm23">Click
+            here</a> to ask our volunteers!</div></small>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>
