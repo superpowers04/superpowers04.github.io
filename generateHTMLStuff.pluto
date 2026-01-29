@@ -27,7 +27,7 @@ do -- Image listing generation
 
 			local filename,ext = file:match('([^/%.]+)%.(.+)')
 			if not exts[ext] then continue end
-			print(file)
+			INFOF('Adding %1 to gallery',file)
 			local desc = filename
 			if io.exists('./imgs/'..file..'.txt') then
 				desc = io.contents(file..'.txt')
@@ -76,7 +76,7 @@ local navbar = {
 }
 
 for i,file in list do
-	print(file)
+	INFOF('Processing %1',file)
 
 	local tbl = {html=io.contents(file),file=file}
 	htmlFiles[#htmlFiles+1] = tbl
@@ -90,12 +90,12 @@ for i,file in list do
 end
 table.sort(htmlFiles,function(a,b) return a.title<b.title end)
 for _,info in ipairs(htmlFiles) do
-	navbar:insert($'<a class="dir" href="{info.file}">{info.title}</a>')
+	navbar:insert($'<a class="dir" href="{info.file:sub(2)}">{info.title}</a>')
 end
 navbar[#navbar+1]='</div><div style="padding-top : 40px"></div>\n<!-- navibar -->'
 for _,info in ipairs(htmlFiles) do
 	local file = info.file
-	print(file)
+	INFOF('Updating %1',file)
 	navbar[4] = info.title
 	io.contents(file,info.html:gsub('<!%-%- navibar %-%->.-<!%-%- navibar %-%->',table.concat(navbar,'')))
 end
