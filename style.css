@@ -109,9 +109,7 @@ button:hover,input:hover{
 	min-height: 350px;
 	image-rendering: pixelated;
 }
-.warn{
-	color: #D94757;
-}
+.warn{ color: #D94757; }
 h1{
 	text-align: center;
 	/*color: ;*/
