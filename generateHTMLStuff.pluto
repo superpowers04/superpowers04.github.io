@@ -1,0 +1,92 @@
+#!/bin/pluto
+dofile(os.getenv('HOME')..'/SRC/dotfiles/lua/utils.lua')
+
+do -- Image listing generation
+	local html = [[<!DOCTYPE html>
+<html>
+<head>
+	<title>Gallery</title>
+	<link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<!-- navibar --><!-- navibar -->
+	<h1>Images</h1>
+]]
+
+	local imgs = {}
+	local exts = {
+		png=true,
+		jpeg=true,
+		webp=true,
+		mp4=true,
+		gif=true,
+	}
+	do
+		local f = io.popen('ls -1Nt ./imgs','r')
+		while file := f:read() do
+			local filename,ext = file:match('([^/%.]+)%.([^%.]+)')
+			if not exts[ext] then continue end
+			local desc = filename
+			if io.exists(file..'.txt') then
+				desc = io.contents(file..'.txt')
+			end
+			imgs[#imgs+1] = (
+				('<a href=%1><img class="png img" onerror="this.style.display=\'none\'" src=%1 title="%2"/></a>')
+					:format_num(('%q'):format(filename),desc)
+			)
+		end
+		f:close()
+	end
+
+	html..=table.concat(imgs,'')..'\n</body></html>'
+
+	io.contents('gallery.html',html)
+
+end
+
+
+
+
+names = {
+	index='home'
+}
+
+
+
+
+
+local list = io.listdir('./')
+table.sort(list)
+local htmlFiles = {}
+local navbar = {
+	'<!-- navibar -->\n',
+	'',
+		'<h1 class="pagename navibar">',
+			'NAME HERE',
+		'</h1><div class="navibar">',
+}
+
+for i,file in list do
+	if file:sub(-5) ~= ".html" then continue end
+
+	local tbl = {html=io.contents(file),file=file}
+	htmlFiles[#htmlFiles+1] = tbl
+	tbl.title = tbl.html:match('<title>(.-)</title>')
+
+	if not tbl.title then 
+		WARNF('%1 HAS NO TITLE!',file)
+		tbl.title = file:match('([^/]+)%.html')
+	end
+	navbar:insert($'<a class="dir" href="{file}">{tbl.title}</a>')
+
+end
+navbar[#navbar+1]='</div><div style="padding-top : 40px"></div>\n<!-- navibar -->'
+table.sort(htmlFiles,function(a,b) return a.title<b.title end)
+for _,info in ipairs(htmlFiles) do
+	local file = info.file
+	print(file)
+	navbar[4] = info.title
+	io.contents(file,info.html:gsub('<!%-%- navibar %-%->.-<!%-%- navibar %-%->',table.concat(navbar,'')))
+end
+
+
