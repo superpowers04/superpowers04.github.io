@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Home</title>
+		<link href="style.css" rel="stylesheet" type="text/css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+	<!-- navibar --><!-- navibar -->
+	<c_d_centered <img.centered src="banner.png" onerror="this.style.display='none'"/> c/>
+
+	# Current <c_small inaccurate :c c/> representation of myself:
+
+	<c_d_centered <img.img src="imgs/me.png" onerror="this.style.display='none'" /> c/>
+	<div>
+		# Basic biography\
+		I am currently a Minecraft Community Support and Prism Launcher Discord Helper that is probably inactive a lot more than I should be
+		
+
+		<!--<b>
+			Due to events being caused by a comic causing me to question a lot about myself, anything beyond this point might not be accurate at the moment, If you're curious about something, please directly ask me about it.
+		</b>  <sub>The comic is <a href="https://rain.thecomicseries.com/comics/1/">Rain</a>. It's a good comic you should read. You might want to read it across multiple days, not all in one 17-20 hour sitting like I did, else it'll hit you like a ton of bricks<sub> -->
+		
+		<strong.warn>! If you're going to DM me, PLEASE let me know if you're over 18 and if so, whether NSFW content does or doesn't bother you. !</strong>
+		<f "strong i d_warn" Bold, Italic, Classed text f/>
+	</div>
+			<usuper_list>
+				* If I say something that bothers you, Please let me know. I'm not the best at picking up if I said something bothersome.
+				* If you have a question or need help with something, Please send me the question instead of saying that you need help or pinging me
+					<bp/>It makes response times from me faster because I can immediately respond to you instead of having to respond and then wait for you to type out your message <sub>then it's a question about if you can get your Minecraft Java Account back because it got hacked and I have to inform you that I do not work for Mojank and then you get mad at me because you had to wait 5 hours for a response because I was ASLEEP a-</sub> wait, what was I talking about again? oh right
+				* <h3>I don't work for Mojang</h3>
+					<bp/> None of the helpers or admins in Minecraft Community Support are affiliated with Mojang or Microsoft. We cannot help with account issues or recover your account. Please contact Microsoft or Mojang, all I can do is provide help for getting the funny little block game to work on your computer
+				* This goober forgets about the existance of people that haven't been interacted with in the past day. So if I randomly stop messaging you, don't take it personally, I do it to literally everyone <s>even family members</s>
+			</usuper_list>
+			# Info about me
+			<usuper_list>
+				* Name: Steph/Stephanie  (I use this as an online name, I don't actually go by this name IRL)
+				* Gender: woman (Transfem/Transgener MTF)
+				* Age: Subtract May, 2005 from current date
+				* Romantic/Sexual interests: Demiromantic I think + Lesbian
+				* Goal in life ig?: To have fun and attempt to make people's days better, I'm not the best at it and it's kinda cliche but I hope I'm atleast getting somewhere
+				* Relationship Status: Single and not really interested in one at the moment
+				* Interests: Programming, Drawing, Minecraft, NSFW content(hence the disclaimer above, please read it),<s>your mother</s>
+			</usuper_list>
+			NOTE <BP> I have an OC named Stephanie Purpurella, she is not representative of me. She was SUPPOSED to be but then I started changing things about her and she eventually stopped being a representation of me
+			# The links to places I exist
+			<d_centered>
+				<c_p <"https://discordapp.com/users/267737465152864256" Discord a> c/>
+				<c_sub I am most active here c/>
+				<"https://superpowers04.git.gay" git.gay a>\
+				<"https://superpowers04.pages.gay" pages.gay a>\
+				<"https://superpowers04.tumblr.com/" Tumblr Blog a>\
+				<"https://superpowers04.neocities.com" Neocities a>\
+				<"https://en.pronouns.page/@superpowers04" Pronouns.page a>\
+				<"https://github.com/superpowers04" Github a>\
+			</d_centered>
+			# Main Projects
+			<table>
+				<tr>
+					<c_th <"https://git.gay/superpowers04/dotfiles" My dotfiles a/> c/>
+					<c_td Most of the configuration I use. Includes stuff like my Niri c/>
+				</tr>
+				<tr>
+					<c_th <"https://github.com/superpowers04/Super-Engine)" Super Engine a> c/>
+					<c_td What started out as an extension to Kade Engine 1.4.2 is now a custom FNF engine by me that features a bunch of moddability without source code, options to add new charts and characters without touching a single line of code, a whole bunch of customization options, basic support for charts from Psych Engine, VSlice(0.3.0+ base funkin') and a whole bunch of other engines, all with a new input engine I designed myself and a whole slew of random shit I rewrote. As of writing this, I've been working on this piece of shit for like 3 years(Started late 2021, before Psych Engine even existed !!!! c/>
+				</tr>
+				<tr>
+					<c_th <"https://github.com/superpowers04/Extura"> Extura a/> c/>
+					<c_td A personal fork of <"https://github.com/ConstantDust/Figura" ConstantDust's a/> Figura Fork that adds a bunch of random things I want to add c/>
+				</tr>
+			</table>
+		<br/>
+	</hr>
+
+	<!LUAR "Generated using super_html on ".._VERSION !>
+</div>
+</body>
+</html>

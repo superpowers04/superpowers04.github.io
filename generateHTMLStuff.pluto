@@ -56,14 +56,129 @@ names = {
 
 
 
+--[[
+	Reads a "super_html" file, a really bad custom format I use to make my life easier
+]]
+local test_example=[[</body>
+	You can escape things with \\ \
+	Backslashes before a newline or 2 newlines will automatically add a \<br/\> \
+	<d_centered>Div with centered class</d_centered>\
+	<a.centered href="https://example.com">Link with centered class</a>\
+	<f "strong i d_centered" Bold, Italic, Centered text f/>\
+
+	<https://example.com Link shorthand 2 a>\
+	<"https://example.com" Link shorthand a>\
+	<c_p Shorthand for any tag c/>\
+	<c_p.centered Shorthand for any tag.class c/>\
+
+	<super_list>
+	* List item 1
+	* List item 2
+	</super_list>
+	<bp> List item without list
+
+	<!LUA return "Preproccessed with ".. (_PVERSION or _VERSION) !>
+</body>
+]]
+local function markup(contents) -- This should only use vanilla lua functions!
+	return (contents
+			-- Character replacements
+			:gsub("\\\\", "&bsol;")
+			:gsub("\\&", "&amp;")
+			:gsub("\\<", "&lt;")
+			:gsub("\\>", "&gt;")
+			:gsub('\\"', "&quot;")
+			:gsub('\\([^ \n])',function(a) return ('&#%i;'):format(a:byte()) end)
+			:gsub("\\\n", "<br/>\n")
+
+			-- Custom tags
+			:gsub('<super_list>%s+(.-)%s+</super_list>',function(tag_contents) -- <super_list>\n* item </super_list>
+				return ('<ul><li>%s</li></ul>'):format(tag_contents:gsub('%* ?',"</li><li>")):gsub("<li>%s*</li>",'')
+			end)
+			:gsub('<usuper_list>%s+(.-)%s+</usuper_list>',function(tag_contents) -- <usuper_list>\n* item </usuper_list>
+				return ('<ul><li>%s</li></ul>'):format(tag_contents:gsub('%* ?',"</li><li>")):gsub("<li>%s*</li>",'')
+			end)
+			:gsub('<osuper_list>%s+(.-)%s+</osuper_list>',function(tag_contents) -- <osuper_list>\n* item </osuper_list>
+				return ('<ol><li>%s</li></ol>'):format(tag_contents:gsub('%* ?',"</li><li>")):gsub("<li>%s*</li>",'')
+			end)
+			:gsub('<([uo]?)bp/?>(.-)\n',function(ordered,tag_contents) -- <bp/> Single Line bullet point
+				ordered = ordered == "o" and "o" or "u"
+				return '<%sl><li>%s</li></%sl>':format(
+					ordered,
+					tag_contents,
+					ordered
+				)
+			end)
+
+			:gsub('<c_?([^ ]+) (.-) c/?>',"<%1>%2</%1>") -- <c_TAG shorthand c/> 
+			:gsub('<c_?([^ >]+)%.([^ >]+) (.-) c/?>',"<%1 class='%2'>%3</%1>") -- <c_TAG.CLASS shorthand c/> 
+			:gsub('<a?(https?://.-) (.-) a/?>',"<a href='%1'>%2</a>") -- <https://example.com Funny link a> 
+			:gsub('<a?"(https?://.-)" (.-) a/?>',"<a href='%1'>%2</a>") -- <"https://example.com" Funny link a> 
+
+			:gsub('<f ?"(.-)" (.-) f/?>',function(tag_list,inner) -- <f "strong i d_CLASS" CLASS Bold Italic f>
+				local tag_start = {}
+				local tag_end = {}
+				for tag in tag_list:gmatch('[^ ]+') do 
+					table.insert(tag_start,('<%s>'):format(tag))
+					table.insert(tag_end,1,('</%s>'):format(tag))
+				end
+				return table.concat(tag_start,'')..inner..table.concat(tag_end,'')
+			end)
+			:gsub('<img ?"(.-)"(.-)/?>', '<img src="%1"%2 />') -- <img "/path/to/image.png"/>
+			:gsub('<img%.([^ >]+) ?"(.-)"(.-)/?>', '<img class="%1" src="%2"%3 />') -- <img.CLASS "/path/to/image.png"/>
+
+			:gsub('<([^/ %.]+)%.([^ >]+)>',"<%1 class='%2'>") -- <TAG.CLASS>
+			:gsub('<([^/ %.]+)%.([^ >]+)(.-)>',"<%1 class='%2'%3>") -- <TAG.CLASS></TAG>
+			:gsub('</([^ %.]+)%.([^ >]+)>',"<%1>") -- </TAG.CLASS>
+			:gsub('<d_([^ >]+) (.-)>',"<div class='%1' %2>") -- <d_CLASS TAG_PROPERTIES>
+			:gsub('<d_([^ >]+)>',"<div class='%1'>") -- <d_CLASS>
+			:gsub('</d_([^ >]+)>',"</div>") -- </d_CLASS>
+
+			-- Custom syntax
+			:gsub("<!(LUAR?) (.-) !>", function(_type,code) -- <!LUA return "Parse time, code" !>
+				if(_type=='LUAR') then code = 'return '..code end
+				local succ
+				local chunk,err = load(code)
+				if chunk then 
+					succ,err = pcall(chunk)
+					if not succ then
+						WARNF('Error with super_html code! %1',err)
+						err = "An error occurred while running lua code: "..err
+					end
+				end
+				return tostring(err)
+			end)
+			:gsub("(\n%s*)(#+)%s*([^\n]+)", function(whitespace,header,text) -- # Header
+				return ('%s<h%i>%s</h%i>'):format(whitespace,#header,text,#header)
+			end)
+
+			-- Newline stuff
+			:gsub("[ \t]+\n", "\n")
+			:gsub("\n\n", "<br/>\n")
+	)
+end
+-- INFO('SUPER_HTML TEST',markup(test_example))
+
+local function markup_file(file)
+	INFOF('Formatting %1',file)
+	
+	io.contents(file:gsub('%.([^%.]+)$','.html'),markup(io.contents(file)))
+end
+
+
 
 local list = {}
 do
-	local e = io.popen('find ./ -type f -name \'*html\'','r')
-	while file := e:read() do
+	local super_mu_files = io.popen('find ./ -type f -name \'*.super_html\'','r')
+	while file := super_mu_files:read() do
+		markup_file(file)
+	end
+	super_mu_files:close()
+	local html_files = io.popen('find ./ -type f -name \'*.html\'','r')
+	while file := html_files:read() do
 		list[#list+1]=file
 	end
-	e:close()
+	html_files:close()
 end
 table.sort(list)
 local htmlFiles = {}
