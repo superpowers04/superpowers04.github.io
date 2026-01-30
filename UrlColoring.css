@@ -69,6 +69,26 @@ a[href*="//facebook.com"],a[href*="//facebook.com"]
 	{color: #47609a;}
 a[href*="//pronouns.page/"],a[href*="//en.pronouns.page/"]
 	{color: #AD2474;}
+a[href*="neocities.com"] {
+	color: #f59c32;
+}
+a[href*="tumblr.com"] {
+	color: #001935;
+}
+a[href*="git.gay"],a[href*="pages.gay"] {
+	color: #001935;
+	-webkit-text-fill-color: transparent;
+	background-image: linear-gradient(
+		90deg,
+		#fe9494,
+		#ffc783,
+		#fff683,
+		#69cb86,
+		#83a8ff,
+		#c56ad4
+	);
+	-webkit-background-clip: text;
+}
 a[href^="https://google."],a[href^="https://www.google."]
 {
 	-webkit-text-fill-color: transparent;
@@ -130,7 +150,8 @@ a[href^="https?://rain.thecomicseries.com"] {
 	);
 	-webkit-background-clip: text;
 }
-a[href*="://rain.thecomicseries.com"]:hover,a[href*="://steampowered.com"]:hover,a[href*="://gamebanana.com"]:hover,a[href*="://steamcommunity.com"]:hover,a[href^="https://google."]:hover,a[href^="https://www.google."]:hover,a[href*="://microsoft.com"]:hover
+
+a[href*="git.gay"]:hover,a[href*="pages.gay"]:hover,a[href*="://rain.thecomicseries.com"]:hover,a[href*="://steampowered.com"]:hover,a[href*="://gamebanana.com"]:hover,a[href*="://steamcommunity.com"]:hover,a[href^="https://google."]:hover,a[href^="https://www.google."]:hover,a[href*="://microsoft.com"]:hover
 {
 	-webkit-text-fill-color: rgba(255, 255, 255, 0.6);
 }
