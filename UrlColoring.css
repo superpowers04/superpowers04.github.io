@@ -10,7 +10,7 @@
 
 
 /*URL coloring*/
-
+a {color: #1155aa;}
 a[href^="https://"]
 	{color: #008800;}
 a[href^="http://"]
