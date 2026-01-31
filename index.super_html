@@ -2,9 +2,7 @@
 <html>
 	<head>
 		<title>Home</title>
-		<link href="style.css" rel="stylesheet" type="text/css"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<meta charset="utf-8" />
+		<shtml_include "HEAD_STUFF.htm" /> 
 	</head>
 	<body>
 	<!-- navibar --><!-- navibar -->
@@ -65,7 +63,7 @@
 					<c_td A CSS file I maintain containing colors for websites that are frequently used c/>
 				</tr>
 				<tr>
-					<c_th <"https://github.com/superpowers04/Extura"> Extura a/> c/>
+					<c_th <"https://github.com/superpowers04/Extura" a/> Extura a/> c/>
 					<c_td A personal fork of <"https://github.com/ConstantDust/Figura" ConstantDust's a/> Figura Fork that adds a bunch of random things I want to add c/>
 				</tr>
 				<tr>

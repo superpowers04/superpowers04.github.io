@@ -33,6 +33,15 @@
 	text-decoration: none;
 	color: var(--fg_color);
 }
+.octicon-link{
+	color: var(--fg_color);
+}
+.jumped_to{
+	transition-property: background-color;
+	transition-duration: 200ms;
+	color: var(--selected_fg_color) !important;
+	background-color: var(--selected_bg_color) !important;
+}
 small{
 	font-size: 12px;
 }
