@@ -55,6 +55,10 @@
 			# Main Projects
 			<table>
 				<tr>
+					<c_th <"https://git.gay/superpowers04/pages" This website a> c/>
+					<c_td It may not seem like it but this website is more than simple html pages- well I mean it pretty much is but I have a <"https://pluto-lang.org/docs/Introduction" pluto a/> file that does a bit of processing and <a"/super_html.lua" a custom html subset thingy a/> c/>
+				</tr>
+				<tr>
 					<c_th <"https://git.gay/superpowers04/dotfiles" My dotfiles a/> c/>
 					<c_td Most of the configuration I use. Includes stuff like my Niri c/>
 				</tr>
@@ -67,7 +71,7 @@
 					<c_td A personal fork of <"https://github.com/ConstantDust/Figura" ConstantDust's a/> Figura Fork that adds a bunch of random things I want to add c/>
 				</tr>
 				<tr>
-					<c_th <"https://github.com/superpowers04/Super-Engine)" Super Engine a> c/>
+					<c_th <"https://github.com/superpowers04/Super-Engine" Super Engine a> c/>
 					<c_td What started out as an extension to Kade Engine 1.4.2 is now a custom FNF engine by me that features a bunch of moddability without source code, options to add new charts and characters without touching a single line of code, a whole bunch of customization options, basic support for charts from Psych Engine, VSlice(0.3.0+ base funkin') and a whole bunch of other engines, all with a new input engine I designed myself and a whole slew of random shit I rewrote. As of writing this, I've been working on this piece of shit for like 3 years(Started late 2021, before Psych Engine even existed !!!! c/>
 				</tr>
 			</table>
